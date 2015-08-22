@@ -1,0 +1,14 @@
+﻿@model DropDownList.ViewModels.DropDownListViewModel
+
+@{
+	var htmlAttributes = HtmlHelper.AnonymousObjectToHtmlAttributes(ViewData["htmlAttributes"]);
+}
+
+@if (!htmlAttributes.ContainsKey("multiple"))
+{
+	@Html.DropDownListFor(m => m.SelectedValue, Model.SelectListItems, htmlAttributes)
+}
+else
+{
+	@Html.ListBoxFor(m => m.SelectedValues, Model.SelectListItems, htmlAttributes)
+}
